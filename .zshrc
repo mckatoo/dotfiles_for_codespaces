@@ -102,6 +102,13 @@ source $ZSH/oh-my-zsh.sh
 DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true
 
+export FLYCTL_INSTALL="/home/codespace/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+if [ ! -d "$FLYCTL_INSTALL" ]; then
+  curl -L https://fly.io/install.sh | sh
+fi
+
 # ls
 # alias l="exa --icons"
 # alias la="exa --icons --all"
